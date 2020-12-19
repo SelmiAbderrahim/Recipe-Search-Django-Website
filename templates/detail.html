@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   {% include 'head.html' %}
+      <style>
+         li {
+         font-size: 0.95rem;
+         line-height: 1.7rem;
+         }
+         .circle{
+         background-color: #e6ffe6;
+         border-radius: 50px;
+         padding: 20px;
+         }
+         .circle:hover{
+         background-color:#99ff99;
+         }
+         .rectangle{
+         background-color: #ffb3b3;
+         padding: 20px;
+         }
+         .rectangle:hover{
+         background-color:#ffe6e6;
+         }
+      </style>
+   
+   <body>
+      <!-- Main Navigation -->
+      <header>
+         
+         <section>
+            <div class="" style="max-height:600px;">
+               <img src="{{recipe.image}}" style="width: 100%">
+            </div>
+         </section>
+       
+      </header>
+      <!-- Main Navigation -->
+      <!-- Main Layout -->
+      <main>
+         <div class="container-fluid mt-5 mt-md-0 mb-5">
+            <!-- Grid row -->
+            <div class="row" style="margin-top: -100px;">
+               <!-- Grid column -->
+               <div class="col-md-12 px-lg-5">
+                  <!-- Card -->
+                  <div class="card pb-5 mx-md-3">
+                     
+                     <h1>#{{recipe.topic.title}}</h1>
+
+                     <div class="card-body">
+                        <div class="container">
+                           <!-- Section heading -->
+                           <h1 class="text-center h1 pt-4 mb-3">
+                              <strong>{{recipe.title}}</strong>
+                           </h1>
+                           <div class="row">
+                              <div class="col-md-12 col-xl-12 d-flex justify-content-center">
+                                 <div class="d-inline">
+                                    <label for="calories">Calories</label>
+                                    <span id="calories" class="border circle">{{recipe.calories}} Kcal</span>
+                                 </div>
+                                 <div style="border-left: 2px solid green;height: 40px; margin-left:5px;"></div>
+                                 <div class="d-inline">
+                                    <label for="carbs" class="mx-2">Carbs</label>
+                                    <span id="carbs" class="border circle">{{recipe.carbs}} g</span>
+                                 </div>
+                                 <div style="border-left: 2px solid green;height: 40px; margin-left:5px;"></div>
+                                 <div class="d-inline">
+                                    <label for="fat" class="mx-2">Fat</label>
+                                    <span id="fat" class="border circle">{{recipe.fat}} g</span>
+                                 </div>
+                                 <div style="border-left: 2px solid green;height: 40px; margin-left:5px;"></div>
+                                 <div class="d-inline">
+                                    <label for="protein" class="mx-2">Protein</label>
+                                    <span id="protein" class="border circle">{{recipe.protein}} g</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <hr>
+                           <div class="row">
+                              <div class="col-md-12 col-xl-12 d-flex justify-content-center">
+                                 <div class="d-inline">
+                                    <label for="calories">Prep:</label>
+                                    <span id="calories" class="border rectangle">{{recipe.time}} mins</span>
+                                 </div>
+                                 <div class="d-inline">
+                                    <label for="carbs" class="mx-2">Servings:</label>
+                                    <span id="carbs" class="border rectangle">{{recipe.servings}}</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- Grid row -->
+                           <div class="row row pt-lg-5 pt-3">
+                              <!-- Grid column -->
+                              <div class="col-md-12 col-xl-12">
+                                 <!-- Grid row -->
+                                 <!---------------------------------------------------------------------------------------------------->
+                                 <p> {{recipe.description|safe}}</p>
+                                 <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12">
+                                       <div class="jumbotron" style="background-color: #f5f5f0">
+                                          <h1>Ingredients:</h1>
+                                          <p>{{recipe.ingredients|safe}}</p>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12">
+                                       <div class="jumbotron" style="background-color: #f5f5f0">
+                                          <h1>Directions:</h1>
+                                          <p> {{recipe.directions|safe}}</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <!---------------------------------------------------------------------------------------------------->
+                                 <!-- Grid row -->
+                                 <div class="row my-5">
+                                    <!-- Grid column -->
+                                    <div class="col-md-12 text-center">
+                                       <h4 class="text-center font-weight-bold dark-grey-text mt-3 mb-3">
+                                          <strong>Share this post: </strong>
+                                       </h4>
+                                       <button type="button" class="btn btn-fb btn-sm">
+                                       <i class="fab fa-facebook-f left"></i> Facebook</button>
+                                       <!-- Twitter -->
+                                       <button type="button" class="btn btn-tw btn-sm">
+                                       <i class="fab fa-twitter left"></i> Twitter</button>
+                                       <!-- Google + -->
+                                       <button type="button" class="btn btn-gplus btn-sm">
+                                       <i class="fab fa-google-plus-g left"></i> Google +</button>
+                                    </div>
+                                    <!-- Grid column -->
+                                 </div>
+                                 <!-- Grid row -->
+                                 <hr class="mt-5">
+                                 <!-- Section: Leave a reply (Not Logged In User) -->
+                              </div>
+                              <!-- Grid column -->
+                           </div>
+                           <!-- Grid row -->
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Card -->
+               </div>
+               <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+            <div class="text-center mt-5">
+               <a href="{% url 'home' %}">Back Home</a>
+            </div>
+         </div>
+      </main>
+      <!-- Main Layout -->
+      <!-- Footer -->
+      <footer class="page-footer text-center text-md-left unique-color-dark pt-0">
+         <!-- Copyright -->
+         <div class="footer-copyright text-center py-3">
+            <div class="container-fluid">
+               © 2019 Copyright: <a href="https://www.fiverr.com/selmiabderrahim" target="_blank"> Selmi Abderrahim </a>
+            </div>
+         </div>
+         <!-- Copyright -->
+      </footer>
+      <!-- SCRIPTS -->
+      {% include 'scripts.html' %}
+      <script>
+         new WOW().init();
+         
+         $(function () {
+           var selectedClass = "";
+           $(".filter").click(function () {
+             selectedClass = $(this).attr("data-rel");
+             $("#gallery").fadeTo(100, 0.1);
+             $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+             setTimeout(function () {
+               $("." + selectedClass).fadeIn().addClass('animation');
+               $("#gallery").fadeTo(300, 1);
+             }, 300);
+           });
+         });
+      </script>
+   </body>
+</html>

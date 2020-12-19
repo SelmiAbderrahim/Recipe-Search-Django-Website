@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+   {% load static %}
+
+   {% include 'head.html' %}
+    <style>
+       html,
+       body,
+       header,
+       .jarallax {
+       height: 1000px;
+       min-height: 800px;
+       }
+    </style>
+ 
+   <body>
+      <!-- Intro Section -->
+      
+      <div class="view jarallax" data-jarallax='{"speed": 0.2}'
+         style="background-image: url('https://cdn.pixabay.com/photo/2018/03/07/18/42/menu-3206749_960_720.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;margin-top:-100px;">
+         <div class="mask rgba-indigo-light">
+            <div class="container h-100 d-flex justify-content-center align-items-center">
+               <div class="row">
+                  <div class="col-md-12 wow fadeIn">
+                     <div class="text-center white-text">
+                        <ul class="list-unstyled">
+                           <li>
+                              <h1 class="display-4 font-weight-bold white-text wow fadeIn"
+                                 data-wow-delay="0.3s">
+                                 <strong>What are you gonna cook today?</strong>
+                              </h1>
+                           </li>
+                           <li>
+                              <h5 class="white-text description mb-5 wow fadeIn" data-wow-delay="0.4s">
+                                 Search for healthy recipes | {{total_recipes}} recipes
+                              </h5>
+                           </li>
+                           <hr>
+                           <form action="{% url 'search' %}" method="get">
+                              <!--Accordion wrapper-->
+                              <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+                                 <!-- Accordion card -->
+                                 <div class="card">
+                                    <!-- Card header -->
+                                    <div class="card-header" role="tab" id="headingOne1">
+                                       <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                                          aria-controls="collapseOne1">
+                                          <h5 class="mb-0">
+                                             Advanced Search <i class="fas fa-angle-down rotate-icon"></i>
+                                          </h5>
+                                          <small class="text-muted">Filter By Categories</small>
+                                       </a>
+                                    </div>
+                                    <!-- Card body -->
+                                    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                                       <div class="card-body">
+                                          <!-- Material checked -->
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="breakfast" name="breakfast">
+                                             <label class="form-check-label" for="breakfast">Breakfast</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="appetizers" name="appetizers">
+                                             <label class="form-check-label" for="appetizers">Appetizers</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="lunch" name="lunch">
+                                             <label class="form-check-label" for="lunch">Lunch</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="salads" name="salads">
+                                             <label class="form-check-label" for="salads">Salads</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="dinner" name="dinner">
+                                             <label class="form-check-label" for="dinner">Dinner</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="dessert" name="dessert">
+                                             <label class="form-check-label" for="dessert">Dessert</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="easy" name="easy">
+                                             <label class="form-check-label" for="easy">Easy</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input type="radio" class="form-check-input" value="on" id="hard" name="hard">
+                                             <label class="form-check-labell" for="hard">Hard</label>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- Accordion card -->
+                              <li class="wow fadeIn" data-wow-delay="0.4s">
+                                 <div class="md-form mb-0">
+                                    <input type="text" id="form51" class="form-control" name="search">
+                                    <label for="form51" class="">Search</label>
+                                 </div>
+                                 <button class="btn btn-white btn-rounded btn-lg orange-text font-weight-bold ml-lg-0" type="submit">
+                                 <i class="fas fa-search orange-text mr-2" aria-hidden="true"></i> Get Recipes</button>
+                              </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </form>
+      <!-- Footer -->
+      <footer class="page-footer text-center text-md-left unique-color-dark pt-0">
+         <!-- Copyright -->
+         <div class="footer-copyright text-center py-3">
+            <div class="container-fluid">
+               © 2019 Copyright: <a href="https://www.fiverr.com/selmiabderrahim" target="_blank"> Selmi Abderrahim </a>
+            </div>
+         </div>
+         <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
+      {% include 'scripts.html' %}
+      <script>
+         // Animation init
+         new WOW().init();
+         
+         // Material Select Initialization
+         $(document).ready(function () {
+           $('.mdb-select').material_select();
+         });
+      </script>
+   </body>
+</html>
